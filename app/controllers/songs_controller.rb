@@ -1,4 +1,5 @@
 class SongsController < ApplicationController
+  skip_before_action :authenticate
   before_action :set_song, only: %i[ show edit update destroy ]
 
   # GET /songs or /songs.json

@@ -1,0 +1,13 @@
+<h1>Input your code</h1>
+
+<%= form_with(url: guest_login_path) do |form| %>
+
+  <div>
+    <%= form.label :code, style: "display: block" %>
+    <%= form.text_field :code, value: @token&.code, required: true %>
+  </div>
+
+  <div>
+    <%= form.submit "Enter the jam" %>
+  </div>
+<% end %>
