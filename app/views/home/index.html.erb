@@ -27,10 +27,12 @@
 <h2>Available tokens</h2>
 
   <div>
+    <%= link_to "All tokens", tokens_path %>
+  </div>
+  <div>
     <%= link_to "Create token", new_token_path %>
   </div>
   
-
 <br>
 
 <%= button_to "Log out", Current.session, method: :delete %>

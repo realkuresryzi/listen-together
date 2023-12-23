@@ -13,6 +13,8 @@ class SessionsController < ApplicationController
   def create
     if user = User.authenticate_by(email: params[:email], password: params[:password])
       @session = user.sessions.create!
+      session[:current_user_email] = user.email
+      puts "session user id: #{@session.user_id}"
       cookies.signed.permanent[:session_token] = { value: @session.id, httponly: true }
 
       redirect_to root_path, notice: "Signed in successfully"
@@ -22,7 +24,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    @session.destroy; redirect_to(sessions_path, notice: "That session has been logged out")
+    session[:current_user_email] = nil
+    session[:current_token] = nil
+    @session.destroy; redirect_to(root_path, notice: "That session has been logged out")
   end
 
   private

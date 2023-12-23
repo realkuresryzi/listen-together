@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     resource :email_verification, only: [:show, :create]
     resource :password_reset,     only: [:new, :edit, :create, :update]
   end
+  resources :songs do
+    put :upvote, on: :member
+  end
+  delete '/leave_jam', to: 'guest_login#destroy', as: :leave_jam
   root "home#index"
   resources :songs
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

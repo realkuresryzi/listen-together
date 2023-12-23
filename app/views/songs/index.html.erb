@@ -1,19 +1,39 @@
 <p style="color: green"><%= notice %></p>
 
-<div>
-  <%= link_to "Return to Main page", root_path %>
-</div>
+<% if session[:current_user_email] %>
+  <div>
+    <%= link_to "Return to Main page", root_path %>
+  </div>
+<% end %>
+
+<% if session[:current_token] %>
+  <%= button_to "Leave jam", leave_jam_path, method: :delete %>
+<% end %>
 
 <h1>Songs</h1>
 
 <div id="songs">
   <% @songs.each do |song| %>
-    <% if song.dj == Current.user.email %>
-      <%= render song %>
-      <p>
-        <%= link_to "Show this song", song %>
-      </p>
-    <% end %>
+    <% matching_user = User.find_by(email: session[:current_user_email]) %>
+    <% if matching_user %>
+      <% if song.dj == matching_user.email %>
+        <%= render song %>
+        <p>
+          <%= link_to "Show this song", song %>
+        </p>
+      <% end %>
+    <% else %>
+      <% if session[:current_token] %>
+        <% matching_token = Token.find_by(code: session[:current_token]) %>
+        <% if matching_token && matching_token.email == song.dj %>
+          <%= render song %>
+          <%= button_to "Upvote", upvote_song_path(song), method: :put, remote: true %>
+          <p>
+            <%= link_to "Show this song", song %>
+          </p>
+        <% end %>
+      <% end %>  
+    <% end %>  
   <% end %>
 </div>
 

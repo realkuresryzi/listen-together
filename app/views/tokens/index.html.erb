@@ -1,13 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
+<div>
+  <%= link_to "Return to Main page", root_path %>
+</div>
+
 <h1>Tokens</h1>
 
 <div id="tokens">
   <% @tokens.each do |token| %>
-    <%= render token %>
-    <p>
-      <%= link_to "Show this token", token %>
-    </p>
+    <% if Current.user.email == token.email%>
+      <%= render token %>
+      <p>
+        <%= link_to "Show this token", token %>
+      </p>
+    <% end %>
   <% end %>
 </div>
 
