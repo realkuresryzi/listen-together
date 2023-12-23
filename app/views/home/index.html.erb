@@ -1,7 +1,8 @@
 <div class="notice"><%= notice %></div>
 
 <div class="user-info">
-  <p>Signed as <%= Current.user.email %></p>
+  <p><%= Current.user.email %></p>
+  <i class="fa-solid fa-circle-user"></i>
 </div>
 
 <h2 class="home_title">Your current jam</h2>
@@ -17,20 +18,14 @@
   <%= link_to "Create token", new_token_path, class: "section-link" %>
 </div>
 
-<h2 class="home_title">Login and verification</h2>
+<h2 class="home_title">Account settings</h2>
 <div>
   <%= link_to "Change password", edit_password_path, class: "section-link" %>
 </div>
 <div>
   <%= link_to "Change email address", edit_identity_email_path, class: "section-link" %>
 </div>
-
-<h2 class="home_title">Access history</h2>
 <div>
   <%= link_to "Devices & Sessions", sessions_path, class: "section-link" %>
 </div>
-
-
-  
-
-<%= button_to "Log out", Current.session, method: :delete %>
+<%= button_to "Log out", Current.session, method: :delete, class: "section-link log-out-button"%>

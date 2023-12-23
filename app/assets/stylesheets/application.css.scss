@@ -16,15 +16,24 @@
 
  @import "font-awesome";
 
+:root {
+  --dark-green: #39472a;
+  --green: #6e9248;
+  --light-green: #add088;
+  --dark-background: #1e1e21;
+  --light-text: #e2e2e2;
+  --red-button: #d74d3e;
+}
+
  html {
     height: 100%;
  }
 
  body {
     font-family: 'Arial';
-    color: #e2e2e2;
+    color: var(--light-text);
 
-    background-color: #1e1e21;
+    background-color: var(--dark-background);
     background-size: 100% 100%;
 
     margin: 0;
@@ -34,4 +43,9 @@
 
   body a {
     text-decoration: none;
+  }
+
+  .light_heading {
+    margin: 0 3em;
+    color: var(--light-green)
   }

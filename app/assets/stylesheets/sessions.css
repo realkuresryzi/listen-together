@@ -1,13 +1,12 @@
 .welcome_button {
   margin: 3em;
   padding: 2em;
-  background-color: white;
+  background-color: var(--light-text);
   border-radius: .7em;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 .purple_text {
-    color: rgb(38, 69, 17);
-    color: #6e9248;
+    color: var(--dark-green)
 }

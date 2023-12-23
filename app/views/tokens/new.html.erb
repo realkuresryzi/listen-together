@@ -1,9 +1,12 @@
-<h1>New token</h1>
+
+<div style="margin: 3em;">
+  <%= link_to tokens_path do %>
+    <i class="fa-solid fa-house" style="color: white; font-size: 2em;"></i>
+  <% end %>
+</div>
+
+<div class="light_heading">
+  <h1>New token</h1>
+</div>
 
 <%= render "form", token: @token %>
-
-<br>
-
-<div>
-  <%= link_to "Back to tokens", tokens_path %>
-</div>
