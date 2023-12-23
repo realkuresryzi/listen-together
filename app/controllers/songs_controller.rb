@@ -4,7 +4,7 @@ class SongsController < ApplicationController
 
   # GET /songs or /songs.json
   def index
-    @songs = Song.all
+    @songs = Song.order(upvotes: :desc)
   end
 
   # GET /songs/1 or /songs/1.json
@@ -23,7 +23,8 @@ class SongsController < ApplicationController
   # POST /songs or /songs.json
   def create
     @song = Song.new(song_params)
-    @song.dj = Current.user.email
+    t = Token.find_by(code: session[:current_token])
+    @song.dj = t.email
 
     respond_to do |format|
       if @song.save
@@ -62,6 +63,14 @@ class SongsController < ApplicationController
   def upvote
     @song = Song.find(params[:id])
     @song.increment!(:upvotes)
+    respond_to do |format|
+      format.js { render layout: false }
+    end
+  end
+
+  def played
+    @song = Song.find(params[:id])
+    @song.update(played: true)
     respond_to do |format|
       format.js { render layout: false }
     end

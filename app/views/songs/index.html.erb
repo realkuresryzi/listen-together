@@ -14,28 +14,27 @@
 
 <div id="songs">
   <% @songs.each do |song| %>
-    <% matching_user = User.find_by(email: session[:current_user_email]) %>
-    <% if matching_user %>
-      <% if song.dj == matching_user.email %>
-        <%= render song %>
-        <p>
-          <%= link_to "Show this song", song %>
-        </p>
-      <% end %>
-    <% else %>
-      <% if session[:current_token] %>
-        <% matching_token = Token.find_by(code: session[:current_token]) %>
-        <% if matching_token && matching_token.email == song.dj %>
+    <% if !song.played %>
+      <% matching_user = User.find_by(email: session[:current_user_email]) %>
+      <% if matching_user %>
+        <% if song.dj == matching_user.email %>
           <%= render song %>
-          <%= button_to "Upvote", upvote_song_path(song), method: :put, remote: true %>
-          <p>
-            <%= link_to "Show this song", song %>
-          </p>
+          <%= button_to "Played", played_song_path(song), method: :put, remote: true %>
         <% end %>
+      <% else %>
+        <% if session[:current_token] %>
+          <% matching_token = Token.find_by(code: session[:current_token]) %>
+          <% if matching_token && matching_token.email == song.dj %>
+            <%= render song %>
+            <%= button_to "Upvote", upvote_song_path(song), method: :put, remote: true %>
+          <% end %>
+        <% end %>  
       <% end %>  
-    <% end %>  
+    <% end %>   
   <% end %>
 </div>
 
-<%= link_to "New song", new_song_path %>
+<% if session[:current_token] %>
+  <%= link_to "New song", new_song_path %>
+<% end %>
 
