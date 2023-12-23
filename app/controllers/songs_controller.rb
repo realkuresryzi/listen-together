@@ -23,12 +23,13 @@ class SongsController < ApplicationController
   # POST /songs or /songs.json
   def create
     @song = Song.new(song_params)
+    @song.upvotes = 0
     t = Token.find_by(code: session[:current_token])
     @song.dj = t.email
 
     respond_to do |format|
       if @song.save
-        format.html { redirect_to song_url(@song), notice: "Song was successfully created." }
+        format.html { redirect_to songs_path, notice: "Song was successfully added..." }
         format.json { render :show, status: :created, location: @song }
       else
         format.html { render :new, status: :unprocessable_entity }

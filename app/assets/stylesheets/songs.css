@@ -1,0 +1,46 @@
+.buttons-footer {
+    position: fixed;
+    top: calc(100% - 7em);
+    left: 0;
+    display: flex; 
+    background-color: rgb(243, 243, 243);
+    width: calc(100% - 8em);
+    height: 5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 1em 4em;
+    border-radius: 1em;
+    z-index: 999;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.button-styling {
+    font-size: 2em;
+    color: #3b5223;
+    margin: .7em;
+    background: none;
+    border: none;
+}
+
+.song_card {
+    background-color: rgba(255, 255, 255, 0.066);
+    padding: .5rem;
+    max-width: 30em;
+    border-radius: .7em;
+    width: 100%;
+}
+
+.card_with_button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin: 1em 0;
+}
+
+.upvote_button {
+    position: relative;
+    left: -6em;
+    top: 1em;
+}

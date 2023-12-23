@@ -1,40 +1,68 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green; margin: 1em 3em;"><%= notice %></p>
 
 <% if session[:current_user_email] %>
-  <div>
-    <%= link_to "Return to Main page", root_path %>
+  <div style="margin: 3em;">
+    <%= link_to root_path do %>
+      <i class="fa-solid fa-house" style="color: white; font-size: 2em;"></i>
+    <% end %>
   </div>
 <% end %>
 
 <% if session[:current_token] %>
-  <%= button_to "Leave jam", leave_jam_path, method: :delete %>
+  <div class="buttons-footer">
+    <%= button_to leave_jam_path, method: :delete, title: "Leave jam" do %>
+      <i class="fa-solid fa-power-off button-styling"></i>
+    <% end %>
+
+    <%= link_to new_song_path do %>
+      <i class="fa-solid fa-plus button-styling"></i>
+    <% end %>
+  </div>
 <% end %>
 
-<h1>Songs</h1>
+<h1 style="margin: 1.5em; color: #3b5223;">Top Songs:</h1>
 
-<div id="songs">
+<div id="songs" style="margin: 3em 0 7em 3em">
   <% @songs.each do |song| %>
     <% if !song.played %>
       <% matching_user = User.find_by(email: session[:current_user_email]) %>
+      
       <% if matching_user %>
         <% if song.dj == matching_user.email %>
-          <%= render song %>
-          <%= button_to "Played", played_song_path(song), method: :put, remote: true %>
+
+          <div class="card_with_button">
+            <%= render song %>
+            <div class="upvote_button">
+              <%= button_to played_song_path(song), method: :put, remote: true, style: "background: none; border: none; padding: 0; cursor: pointer;" do %>
+                <i class="fa-regular fa-circle-check" style="font-size: 1.5em; color: #7bdc98; padding: 2em;"></i>
+              <% end %>
+            </div>  
+          </div>
+          
         <% end %>
       <% else %>
+
         <% if session[:current_token] %>
           <% matching_token = Token.find_by(code: session[:current_token]) %>
           <% if matching_token && matching_token.email == song.dj %>
-            <%= render song %>
-            <%= button_to "Upvote", upvote_song_path(song), method: :put, remote: true %>
+
+            <div class="card_with_button">
+              <%= render song %>
+              <div class="upvote_button">
+                <%= button_to upvote_song_path(song), method: :put, remote: true, style: "background: none; border: none; padding: 0; cursor: pointer;" do %>
+                  <i class="fa-solid fa-angle-up" style="font-size: 1.5em; color: #7bdc98; padding: 2em;"></i>
+                <% end %>
+              </div>  
+            </div>
+
           <% end %>
         <% end %>  
       <% end %>  
+
     <% end %>   
   <% end %>
 </div>
 
-<% if session[:current_token] %>
-  <%= link_to "New song", new_song_path %>
-<% end %>
+<p style="margin: 10em; font-size: .3em;">All rights reserved</p>
+
 

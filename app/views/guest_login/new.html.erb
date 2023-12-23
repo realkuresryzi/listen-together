@@ -1,13 +1,15 @@
-<h1>Input your code</h1>
+<h1 style="margin: 3rem; color: #3b5223;">Input your code</h1>
 
 <%= form_with(url: guest_login_path) do |form| %>
 
-  <div>
+  <div style="margin: 0 3rem; color: #6e9248;">
     <%= form.label :code, style: "display: block" %>
     <%= form.text_field :code, value: @token&.code, required: true %>
   </div>
 
-  <div>
-    <%= form.submit "Enter the jam" %>
+  <div style="margin: 1em 3em">
+    <%= button_to guest_login_path, method: :post, style: "padding: 1em; background-color: #4CAF50; color: white; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;" do %>
+      <i class="fa-solid fa-right-to-bracket"></i>
+    <% end %>
   </div>
 <% end %>

@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "font-awesome";
+
+ html {
+    height: 100%;
+ }
+
+ body {
+    font-family: 'Arial';
+    color: #e2e2e2;
+
+    background-color: #1e1e21;
+    background-size: 100% 100%;
+
+    margin: 0;
+    
+  
+  }
+
+  body a {
+    text-decoration: none;
+  }

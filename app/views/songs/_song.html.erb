@@ -1,22 +1,17 @@
-<div id="<%= dom_id song %>">
-  <p>
-    <strong>Title:</strong>
+<div id="<%= dom_id song %>" class="song_card">
+  <p style="font-size: 2em; margin: 0; font-weight: bold;">
     <%= song.title %>
   </p>
 
   <p>
-    <strong>Artist:</strong>
+    Artist:
     <%= song.artist %>
   </p>
 
-  <p>
-    <strong>Upvotes:</strong>
+  <p style="margin: 0;">
     <%= song.upvotes %>
+    upvotes
   </p>
 
-  <p>
-    <strong>Played:</strong>
-    <%= song.played %>
-  </p>
 
 </div>

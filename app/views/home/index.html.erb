@@ -1,38 +1,36 @@
-<p style="color: green"><%= notice %></p>
+<div class="notice"><%= notice %></div>
 
-<p>Signed as <%= Current.user.email %></p>
-
-<h2>Login and verification</h2>
-
-<div>
-  <%= link_to "Change password", edit_password_path %>
+<div class="user-info">
+  <p>Signed as <%= Current.user.email %></p>
 </div>
 
+<h2 class="home_title">Your current jam</h2>
 <div>
-  <%= link_to "Change email address", edit_identity_email_path %>
+  <%= link_to "Enter jam", songs_path, class: "section-link" %>
 </div>
 
-<h2>Access history</h2>
-
+<h2 class="home_title">Available tokens</h2>
 <div>
-  <%= link_to "Devices & Sessions", sessions_path %>
+  <%= link_to "All tokens", tokens_path, class: "section-link" %>
+</div>
+<div>
+  <%= link_to "Create token", new_token_path, class: "section-link" %>
 </div>
 
-<h2>Your current jam</h2>
-
+<h2 class="home_title">Login and verification</h2>
 <div>
-  <%= link_to "Enter jam", songs_path %>
+  <%= link_to "Change password", edit_password_path, class: "section-link" %>
+</div>
+<div>
+  <%= link_to "Change email address", edit_identity_email_path, class: "section-link" %>
 </div>
 
-<h2>Available tokens</h2>
+<h2 class="home_title">Access history</h2>
+<div>
+  <%= link_to "Devices & Sessions", sessions_path, class: "section-link" %>
+</div>
 
-  <div>
-    <%= link_to "All tokens", tokens_path %>
-  </div>
-  <div>
-    <%= link_to "Create token", new_token_path %>
-  </div>
+
   
-<br>
 
 <%= button_to "Log out", Current.session, method: :delete %>

@@ -1,10 +1,12 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green; margin: 3em;"><%= notice %></p>
 
-<div>
-  <%= link_to "Return to Main page", root_path %>
+<div style="margin: 3em;">
+  <%= link_to root_path do %>
+    <i class="fa-solid fa-house" style="color: white; font-size: 2em;"></i>
+  <% end %>
 </div>
 
-<h1>Tokens</h1>
+<h1 style="margin: 1.5em; color: #3b5223;">Tokens</h1>
 
 <div id="tokens">
   <% @tokens.each do |token| %>
