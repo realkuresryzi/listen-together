@@ -4,6 +4,7 @@ class TokensController < ApplicationController
   # GET /tokens or /tokens.json
   def index
     @tokens = Token.all
+    @token = Token.new
   end
 
   # GET /tokens/1 or /tokens/1.json

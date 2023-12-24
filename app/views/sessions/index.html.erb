@@ -1,8 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Devices & Sessions</h1>
+<div style="margin: 3em;">
+  <%= link_to root_path do %>
+    <i class="fa-solid fa-house" style="color: white; font-size: 2em;"></i>
+  <% end %>
+</div>
 
-<div id="sessions">
+<div class="light-heading">
+  <h1>Devices & Sessions</h1>
+</div>
+
+<div id="sessions" style="margin: 1em 3em;">
   <% @sessions.each do |session| %>
     <div id="<%= dom_id session %>">
       <p>
@@ -16,7 +24,7 @@
       </p>
 
       <p>
-        <strong>Created at:</strong>
+        <strong>Session created at:</strong>
         <%= session.created_at %>
       </p>
 
@@ -25,8 +33,3 @@
   <% end %>
 </div>
 
-<br>
-
-<div>
-  <%= link_to "Back", root_path %>
-</div>

@@ -5,23 +5,23 @@
   <%= link_to "Continue as guest", "#", style: "color: inherit; text-decoration: none;" %>
 </div>
 
-<div class="light_heading">
+<div class="light-heading">
   <h1>Sign in as DJ</h1>
 </div>
 
 <div class="additional-content">
   <%= form_with(url: sign_in_path) do |form| %>
-    <div style="margin: 1em 3em; color: #6e9248;">
+    <div class="general-input">
       <%= form.label :email, style: "display: block" %>
       <%= form.email_field :email, value: params[:email_hint], required: true, autofocus: true, autocomplete: "email" %>
     </div>
 
-    <div style="margin: 1em 3em; color: #6e9248;">
+    <div class="general-input">
       <%= form.label :password, style: "display: block" %>
       <%= form.password_field :password, required: true, autocomplete: "current-password" %>
     </div>
 
-    <div style="margin: 1em 3em">
+    <div class="general-input">
       <%= button_to guest_login_path, method: :post, style: "padding: 1em; background-color: #4CAF50; color: white; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;" do %>
         <i class="fa-solid fa-right-to-bracket"></i>
       <% end %>

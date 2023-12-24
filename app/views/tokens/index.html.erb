@@ -6,18 +6,24 @@
   <% end %>
 </div>
 
-<h1 style="margin: 1.5em; color: #3b5223;">Tokens</h1>
-
+<div class="token-header">
+  <h1>Tokens</h1>
+  <%= render "form", token: @token %>
+</div>
 <div id="tokens">
   <% @tokens.each do |token| %>
     <% if Current.user.email == token.email%>
-      <%= render token %>
-      <p>
-        <%= link_to "Show this token", token %>
-      </p>
+      <div class="card_with_button">
+        <%= render token %>
+        <div class="upvote_button">
+          <%= button_to token_path(token), method: :delete, remote: true, style: "background: none; border: none; padding: 0; cursor: pointer;" do %>
+            <i class="fa-solid fa-trash" style="font-size: 1.5em; color: #d74d3e; padding: 1.14em;"></i>
+          <% end %>
+        </div>
+      </div>
     <% end %>
   <% end %>
 </div>
 
-<%= link_to "New token", new_token_path %>
+<!-- <%= link_to "New token", new_token_path %> -->
 

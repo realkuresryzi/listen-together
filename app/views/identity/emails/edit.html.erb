@@ -1,12 +1,20 @@
 <p style="color: red"><%= alert %></p>
 
-<% if Current.user.verified? %>
-  <h1>Change your email</h1>
-<% else %>
-  <h1>Verify your email</h1>
-  <p>We sent a verification email to the address below. Check that email and follow those instructions to confirm it's your email address.</p>
-  <p><%= button_to "Re-send verification email", identity_email_verification_path %></p>
-<% end %>
+<div style="margin: 3em;">
+  <%= link_to root_path do %>
+    <i class="fa-solid fa-house" style="color: white; font-size: 2em;"></i>
+  <% end %>
+</div>
+
+<div class="light-heading">
+  <% if Current.user.verified? %>
+    <h1>Change your email</h1>
+  <% else %>
+    <h1>Verify your email</h1>
+    <p>We sent a verification email to the address below. Check that email and follow those instructions to confirm it's your email address.</p>
+    <p><%= button_to "Re-send verification email", identity_email_verification_path %></p>
+  <% end %>
+</div>  
 
 <%= form_with(url: identity_email_path, method: :patch) do |form| %>
   <% if @user.errors.any? %>
@@ -21,23 +29,17 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="general-input">
     <%= form.label :email, "New email", style: "display: block" %>
     <%= form.email_field :email, required: true, autofocus: true %>
   </div>
 
-  <div>
+  <div class="general-input">
     <%= form.label :password_challenge, style: "display: block" %>
     <%= form.password_field :password_challenge, required: true, autocomplete: "current-password" %>
   </div>
 
-  <div>
+  <div class="general-input">
     <%= form.submit "Save changes" %>
   </div>
 <% end %>
-
-<br>
-
-<div>
-  <%= link_to "Back", root_path %>
-</div>

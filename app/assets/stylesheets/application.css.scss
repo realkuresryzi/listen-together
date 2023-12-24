@@ -25,27 +25,32 @@
   --red-button: #d74d3e;
 }
 
- html {
-    height: 100%;
- }
+html {
+  height: 100%;
+}
 
- body {
-    font-family: 'Arial';
-    color: var(--light-text);
+body {
+  font-family: 'Arial';
+  color: var(--light-text);
 
-    background-color: var(--dark-background);
-    background-size: 100% 100%;
+  background-color: var(--dark-background);
+  background-size: 100% 100%;
 
-    margin: 0;
-    
+  margin: 0;
   
-  }
 
-  body a {
-    text-decoration: none;
-  }
+}
 
-  .light_heading {
-    margin: 0 3em;
-    color: var(--light-green)
-  }
+body a {
+  text-decoration: none;
+}
+
+.light-heading {
+  margin: 0 3em;
+  color: var(--light-green)
+}
+
+.general-input {
+  margin: 1em 3em; 
+  color: var(--green);
+}
