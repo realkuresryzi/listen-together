@@ -11,17 +11,13 @@
     </div>
   <% end %>
 
-  <div class="general-input">
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <%= form.text_field :title, placeholder: "Title", class: "general-input" %>
+  <%= form.text_field :artist, placeholder: "Artist", class: "general-input" %>
+
+  <div class="button-margin">
+    <%= form.button type: :submit, class: "general-submit-button" do %>
+      <i class="fa-solid fa-floppy-disk"></i>
+    <% end %>
   </div>
 
-  <div class="general-input">
-    <%= form.label :artist, style: "display: block" %>
-    <%= form.text_field :artist %>
-  </div>
-
-  <div class="general-input">
-    <%= form.submit %>
-  </div>
 <% end %>

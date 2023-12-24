@@ -1,4 +1,4 @@
-<div class="notice"><%= notice %></div>
+<!-- <div class="notice"><%= notice %></div> -->
 
 <div class="user-info">
   <p><%= Current.user.email %></p>
@@ -6,26 +6,31 @@
 </div>
 
 <h2 class="home_title">Your current jam</h2>
-<div>
-  <%= link_to "Enter jam", songs_path, class: "section-link" %>
+<div class="section-link">
+  <i class="fa-solid fa-music icon-padding"></i>
+  <%= link_to "Enter jam", songs_path, class: "text-decor-setting" %>
 </div>
 
 <h2 class="home_title">Available tokens</h2>
-<div>
-  <%= link_to "All tokens", tokens_path, class: "section-link" %>
+<div class="section-link">
+  <i class="fa-solid fa-user-gear icon-padding"></i>
+  <%= link_to "All tokens", tokens_path, class: "text-decor-setting" %>
 </div>
 <!-- <div>
   <%= link_to "Create more tokens (todo)", new_token_path, class: "section-link" %>
 </div> -->
 
 <h2 class="home_title">Account settings</h2>
-<div>
-  <%= link_to "Change password", edit_password_path, class: "section-link" %>
+<div class="section-link">
+  <i class="fa-solid fa-key icon-padding"></i>
+  <%= link_to "Change password", edit_password_path, class: "text-decor-setting" %>
 </div>
-<div>
-  <%= link_to "Change email address", edit_identity_email_path, class: "section-link" %>
+<div class="section-link">
+  <i class="fa-solid fa-envelope icon-padding"></i>
+  <%= link_to "Change email address", edit_identity_email_path, class: "text-decor-setting" %>
 </div>
-<div>
-  <%= link_to "Devices & Sessions", sessions_path, class: "section-link" %>
+<div class="section-link">
+  <i class="fa-solid fa-desktop icon-padding"></i>
+  <%= link_to "Devices & Sessions", sessions_path, class: "text-decor-setting" %>
 </div>
 <%= button_to "Log out", Current.session, method: :delete, class: "section-link log-out-button"%>

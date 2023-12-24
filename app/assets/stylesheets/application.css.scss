@@ -15,12 +15,13 @@
  */
 
  @import "font-awesome";
+ @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100&display=swap');
 
 :root {
-  --dark-green: #39472a;
-  --green: #6e9248;
-  --light-green: #add088;
-  --dark-background: #1e1e21;
+  --dark-green: #66347F;
+  --green: #9E4784;
+  --light-green: #D27685;
+  --dark-background: #282831;
   --light-text: #e2e2e2;
   --red-button: #d74d3e;
 }
@@ -30,15 +31,13 @@ html {
 }
 
 body {
-  font-family: 'Arial';
+  font-family: 'Lexend', sans-serif;
   color: var(--light-text);
 
   background-color: var(--dark-background);
   background-size: 100% 100%;
 
   margin: 0;
-  
-
 }
 
 body a {
@@ -47,10 +46,33 @@ body a {
 
 .light-heading {
   margin: 0 3em;
-  color: var(--light-green)
+  color: var(--light-green);
 }
 
 .general-input {
-  margin: 1em 3em; 
+  margin: 1em 3.5em;
+  width: 15em;
+  height: 1.5em;
+  border-radius: .6em;
+  border: none;
+  padding: .4em;
+}
+
+.general-submit-button {
+  padding: 1em; 
+  background-color: var(--green); 
+  color: white; 
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: .6em;
+  border: none;
+  margin-top: .5em;
+  box-shadow: 0 0 .8em rgba(0, 0, 0, 0.685);
+}
+
+.home-button {
   color: var(--green);
+  font-size: 2em;
 }

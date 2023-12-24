@@ -1,8 +1,8 @@
-<p style="color: red"><%= alert %></p>
+<!-- <p style="color: red"><%= alert %></p> -->
 
 <div style="margin: 3em;">
-  <%= link_to root_path do %>
-    <i class="fa-solid fa-house" style="color: white; font-size: 2em;"></i>
+  <%= link_to root_path, class: "home-button"  do %>
+    <i class="fa-solid fa-house"></i>
   <% end %>
 </div>
 
@@ -11,12 +11,13 @@
 </div>
 
 <%= form_with(url: identity_password_reset_path) do |form| %>
-  <div class="general-input">
-    <%= form.label :email, style: "display: block" %>
-    <%= form.email_field :email, required: true, autofocus: true %>
+
+  <%= form.email_field :email, placeholder: "Email", required: true, autofocus: true, class: "general-input" %>
+
+  <div class="button-margin">
+    <%= form.button type: :submit, class: "general-submit-button" do %>
+      <i class="fa-solid fa-check"></i>
+    <% end %>
   </div>
 
-  <div class="general-input">
-    <%= form.submit "Send password reset email" %>
-  </div>
 <% end %>

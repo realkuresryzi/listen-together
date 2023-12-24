@@ -1,9 +1,9 @@
-<p style="color: green; margin: 1em 3em;"><%= notice %></p>
+<!-- <p id="notice" style="color: green; margin: 1em 3em;"><%= notice %></p> -->
 
 <% if session[:current_user_email] %>
   <div style="margin: 3em;">
-    <%= link_to root_path do %>
-      <i class="fa-solid fa-house" style="color: white; font-size: 2em;"></i>
+    <%= link_to root_path, class: "home-button"  do %>
+      <i class="fa-solid fa-house"></i>
     <% end %>
   </div>
 <% end %>
@@ -21,7 +21,7 @@
 <% end %>
 
 <div class="light-heading">
-  <h1>Top Songs:</h1>
+  <h1 style="margin: 1.5em 0;">Top Songs:</h1>
 </div>
 
 <div id="songs">
@@ -36,7 +36,7 @@
             <%= render song %>
             <div class="upvote_button">
               <%= button_to played_song_path(song), method: :put, remote: true, style: "background: none; border: none; padding: 0; cursor: pointer;" do %>
-                <i class="fa-regular fa-circle-check" style="font-size: 1.5em; color: #7bdc98; padding: 2em;"></i>
+                <i class="fa-regular fa-circle-check" style="font-size: 1.5em; color: #9E4784; padding: 2em;"></i>
               <% end %>
             </div>  
           </div>

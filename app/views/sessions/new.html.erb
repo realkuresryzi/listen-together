@@ -1,8 +1,8 @@
-<p style="color: green; margin: 1em 3em;"><%= notice %></p>
-<p style="color: red; margin: 1em 3em;"><%= alert %></p>
+<!-- <p style="color: green; margin: 1em 3em;"><%= notice %></p>
+<p style="color: red; margin: 1em 3em;"><%= alert %></p> -->
 
 <div class="welcome_button purple_text" onclick="window.location.href='<%= guest_login_path %>'">
-  <%= link_to "Continue as guest", "#", style: "color: inherit; text-decoration: none;" %>
+  <%= link_to "Enter using invite code", "#", class: "button-text" %>
 </div>
 
 <div class="light-heading">
@@ -11,18 +11,12 @@
 
 <div class="additional-content">
   <%= form_with(url: sign_in_path) do |form| %>
-    <div class="general-input">
-      <%= form.label :email, style: "display: block" %>
-      <%= form.email_field :email, value: params[:email_hint], required: true, autofocus: true, autocomplete: "email" %>
-    </div>
 
-    <div class="general-input">
-      <%= form.label :password, style: "display: block" %>
-      <%= form.password_field :password, required: true, autocomplete: "current-password" %>
-    </div>
+    <%= form.email_field :email, placeholder: "Email", value: params[:email_hint], required: true, autofocus: true, autocomplete: "email", class: "general-input" %>
+    <%= form.password_field :password, placeholder: "Password", required: true, autocomplete: "current-password", class: "general-input" %>
 
-    <div class="general-input">
-      <%= button_to guest_login_path, method: :post, style: "padding: 1em; background-color: #4CAF50; color: white; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer;" do %>
+    <div class="button-margin">
+      <%= button_to guest_login_path, method: :post, class: "general-submit-button" do %>
         <i class="fa-solid fa-right-to-bracket"></i>
       <% end %>
     </div>

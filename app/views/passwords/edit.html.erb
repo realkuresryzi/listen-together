@@ -1,8 +1,8 @@
-<p style="color: red"><%= alert %></p>
+<!-- <p style="color: red"><%= alert %></p> -->
 
 <div style="margin: 3em;">
-  <%= link_to root_path do %>
-    <i class="fa-solid fa-house" style="color: white; font-size: 2em;"></i>
+  <%= link_to root_path, class: "home-button"  do %>
+    <i class="fa-solid fa-house"></i>
   <% end %>
 </div>
 
@@ -23,23 +23,14 @@
     </div>
   <% end %>
 
-  <div class="general-input">
-    <%= form.label :password_challenge, style: "display: block" %>
-    <%= form.password_field :password_challenge, required: true, autofocus: true, autocomplete: "current-password" %>
-  </div>
+  <%= form.password_field :password_challenge, placeholder: "Old password", required: true, autofocus: true, autocomplete: "current-password", class: "general-input" %>
+  <%= form.password_field :password, placeholder: "New password", required: true, autocomplete: "new-password", class: "general-input" %>
+  <%= form.password_field :password_confirmation, placeholder: "New password confirmation", required: true, autocomplete: "new-password", class: "general-input" %>
 
-  <div class="general-input">
-    <%= form.label :password, "New password", style: "display: block" %>
-    <%= form.password_field :password, required: true, autocomplete: "new-password" %>
-  </div>
-
-  <div class="general-input">
-    <%= form.label :password_confirmation, "Confirm new password", style: "display: block" %>
-    <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password" %>
-  </div>
-
-  <div class="general-input">
-    <%= form.submit "Save changes" %>
+  <div class="button-margin">
+    <%= form.button type: :submit, class: "general-submit-button" do %>
+      <i class="fa-solid fa-check"></i>
+    <% end %>
   </div>
 
 <% end %>

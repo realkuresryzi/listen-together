@@ -1,10 +1,11 @@
 .welcome_button {
   margin: 3em;
   padding: 2em;
-  background-color: var(--light-text);
+  background-color: var(--green);
   border-radius: .7em;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 .8em rgba(0, 0, 0, 0.685);
+  max-width: 20em;
 }
 
 .purple_text {
@@ -17,4 +18,13 @@
   justify-content: space-between;
   margin: 4em 3em;
   height: 3em;
+}
+
+.button-text {
+  font-size: 1.5em;
+  color: var(--light-text);
+}
+
+.button-margin {
+  margin-left: 3em;
 }

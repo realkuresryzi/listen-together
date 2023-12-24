@@ -2,4 +2,11 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
+function hideNotice() {
+  var noticeElement = document.getElementById('notice');
+  if (noticeElement) {
+    noticeElement.style.display = 'none';
+  }
+}
 
+setTimeout(hideNotice, 5000);

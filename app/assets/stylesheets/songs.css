@@ -12,7 +12,7 @@
     margin: 1em 3em;
     border-radius: 1em;
     z-index: 999;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.468);
 }
 
 #songs {
@@ -21,8 +21,8 @@
 
 .button-styling {
     font-size: 2em;
-    color: var(--dark-green);
-    margin: .7em;
+    color: var(--dark-background);
+    margin: .75em;
     background: none;
     border: none;
 }
@@ -48,6 +48,8 @@
     justify-content: space-between;
 
     margin: 1em 0;
+    border-radius: .8em;
+    box-shadow: 0 0 .8rem rgba(0, 0, 0, 0.385);
 }
 
 .upvote_button {

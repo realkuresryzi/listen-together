@@ -1,8 +1,8 @@
-<p style="color: red"><%= alert %></p>
+<!-- <p style="color: red"><%= alert %></p> -->
 
 <div style="margin: 3em;">
-  <%= link_to root_path do %>
-    <i class="fa-solid fa-house" style="color: white; font-size: 2em;"></i>
+  <%= link_to root_path, class: "home-button"  do %>
+    <i class="fa-solid fa-house"></i>
   <% end %>
 </div>
 
@@ -11,8 +11,8 @@
     <h1>Change your email</h1>
   <% else %>
     <h1>Verify your email</h1>
-    <p>We sent a verification email to the address below. Check that email and follow those instructions to confirm it's your email address.</p>
-    <p><%= button_to "Re-send verification email", identity_email_verification_path %></p>
+    <p style="color: #e2e2e2">We sent a verification email to the address below. Check that email and follow those instructions to confirm it's your email address. (Btw mailing doesn't work for now hahaha)</p>
+    <p><%= button_to "Re-send verification email", identity_email_verification_path, class: "general-submit-button" %></p>
   <% end %>
 </div>  
 
@@ -29,17 +29,13 @@
     </div>
   <% end %>
 
-  <div class="general-input">
-    <%= form.label :email, "New email", style: "display: block" %>
-    <%= form.email_field :email, required: true, autofocus: true %>
+  <%= form.email_field :email, placeholder: "New email", required: true, autofocus: true, class: "general-input" %>
+  <%= form.password_field :password_challenge, placeholder: "Password", required: true, autocomplete: "current-password", class: "general-input" %>
+
+  <div class="button-margin">
+    <%= form.button type: :submit, class: "general-submit-button" do %>
+      <i class="fa-solid fa-check"></i>
+    <% end %>
   </div>
 
-  <div class="general-input">
-    <%= form.label :password_challenge, style: "display: block" %>
-    <%= form.password_field :password_challenge, required: true, autocomplete: "current-password" %>
-  </div>
-
-  <div class="general-input">
-    <%= form.submit "Save changes" %>
-  </div>
 <% end %>
