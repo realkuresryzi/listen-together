@@ -28,7 +28,7 @@ class SongsController < ApplicationController
     @song.dj = t.email
 
 
-    if Song.where('lower(title) = ? AND lower(artist) = ?', @song.title.downcase, @song.artist.downcase).exists?
+    if Song.where('lower(title) = ? AND lower(artist) = ? AND dj = ?', @song.title.downcase, @song.artist.downcase, t.email).exists?
       redirect_to new_song_path, alert: "Song already played or is in the queue..."
       return
     end
