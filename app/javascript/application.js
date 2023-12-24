@@ -2,11 +2,17 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
-function hideNotice() {
-  var noticeElement = document.getElementById('notice');
-  if (noticeElement) {
-    noticeElement.style.display = 'none';
+document.addEventListener("turbo:load", function() {
+  var startDeleteButton = document.getElementById("start-delete-button");
+  if (startDeleteButton) {
+    startDeleteButton.addEventListener("click", function(event) {
+      event.preventDefault();
+      var el = document.getElementById("remove-all-songs");
+      var on = document.getElementById("delete-on");
+      var off = document.getElementById("delete-off");
+      el.style.display = (el.style.display == "none") ? "block" : "none";
+      on.style.display = (on.style.display == "none") ? "block" : "none";
+      off.style.display = (off.style.display == "none") ? "block" : "none";
+    });
   }
-}
-
-setTimeout(hideNotice, 5000);
+});

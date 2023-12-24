@@ -10,10 +10,31 @@
   <i class="fa-solid fa-music icon-padding"></i>
   <%= link_to "Enter jam", songs_path, class: "text-decor-setting" %>
 </div>
-<div class="section-link" onclick="window.location='<%= songs_path %>'">
-  <i class="fa-solid fa-trash icon-padding"></i>
-  <%= link_to "Remove all played songs", songs_path, class: "text-decor-setting" %>
+
+<div id="start-delete-button" class="section-link">
+  <div id="delete-on" style="display: block;">
+    <i class="fa-solid fa-trash icon-padding"></i>
+    <%= link_to "Remove all played songs", '#', class: "text-decor-setting" %>
+  </div>
+  <div id="delete-off" style="display: none;">
+    <i class="fa-solid fa-ban icon-padding"></i>
+    <%= link_to "Cancel", '#', class: "text-decor-setting" %>
+  </div>
 </div>
+
+<%= link_to remove_all_songs_path, method: :delete, style: "color: white; width: 100%; height: 100%;" do %>
+  <div id="remove-all-songs" class="section-link section-delete-link" style="display: none;">
+    <i class="fa-solid fa-triangle-exclamation icon-padding"></i> Remove all played songs
+  </div>
+<% end %>
+
+<!-- in case i dont fix javascript -->
+<!-- <div id="remove-all-songs" class="section-link section-delete-link" style="display: none;">
+  <%= link_to remove_all_songs_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" do %>
+    <i class="fas fa-trash icon-padding"></i> Remove all played songs
+  <% end %>
+</div> -->
+
 
 <h2 class="home_title">Available tokens</h2>
 <div class="section-link" onclick="window.location='<%= tokens_path %>'">

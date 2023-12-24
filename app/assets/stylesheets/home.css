@@ -35,6 +35,12 @@
   cursor: pointer;
 }
 
+.section-delete-link {
+  background-color: var(--red-button);
+  color: var(--light-text);
+  border-color: var(--red-button);
+}
+
 .icon-padding {
   padding: 0 .8em 0 .4em;
 }
@@ -42,6 +48,11 @@
 .text-decor-setting {
   text-decoration: none;
   color: black;
+}
+
+.text-decor-delete-setting {
+  text-decoration: none;
+  color: var(--light-text);
 }
 
 .log-out-button {

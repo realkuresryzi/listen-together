@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     put :upvote, on: :member
     put :downvote, on: :member
     put :played, on: :member
+    delete :remove_all, on: :collection	
   end
   delete '/leave_jam', to: 'guest_login#destroy', as: :leave_jam
   root "home#index"

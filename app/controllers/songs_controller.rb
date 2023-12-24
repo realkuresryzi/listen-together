@@ -9,6 +9,11 @@ class SongsController < ApplicationController
 
   # GET /songs/1 or /songs/1.json
   def show
+    if params[:id] == "remove_all"
+      remove_all
+      return
+    end
+    @song = Song.find(params[:id])
   end
 
   # GET /songs/new
@@ -67,6 +72,17 @@ class SongsController < ApplicationController
     end
   end
 
+  def remove_all
+    current_user_email = session[:current_user_email]
+    songs_to_be_deleted = Song.where(dj: current_user_email, played: true)
+    songs_to_be_deleted.delete_all
+
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'All played songs were successfully removed.' }
+      format.json { head :no_content }
+    end
+  end
+
   def upvote
     @song = Song.find(params[:id])
     @song.increment!(:upvotes)
@@ -100,6 +116,10 @@ class SongsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_song
+      if params[:id] == "remove_all"
+        remove_all
+        return
+      end
       @song = Song.find(params[:id])
     end
 
