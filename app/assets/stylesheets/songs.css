@@ -13,7 +13,14 @@
     border-radius: 1em;
     z-index: 999;
     box-shadow: 0 0 1em rgba(0, 0, 0, 0.468);
+    max-width: 20rem;
 }
+
+@media (min-width: 38rem) {
+    .buttons-footer {
+      margin-left: calc(50vw - 10.5rem);
+    }
+  }
 
 #songs {
     margin: 0 2em 7em 2em;
@@ -50,6 +57,7 @@
     margin: 1em 0;
     border-radius: .8em;
     box-shadow: 0 0 .8rem rgba(0, 0, 0, 0.385);
+    max-width: 30rem;
 }
 
 .upvote_button {

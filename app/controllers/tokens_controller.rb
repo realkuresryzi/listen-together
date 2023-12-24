@@ -23,7 +23,7 @@ class TokensController < ApplicationController
   # POST /tokens or /tokens.json
   def create
     @token = Token.new(
-      code: generate_random_code,
+      code: generate_unique_code,
       used: false,
       user_id: Current.user.id,
       email: Current.user.email
@@ -84,6 +84,13 @@ class TokensController < ApplicationController
     # Only allow a list of trusted parameters through.
     def token_params
       params.require(:token).permit(:code)
+    end
+
+    def generate_unique_code
+      loop do
+        code = generate_random_code
+        return code unless Token.exists?(code: code)
+      end
     end
 
     def generate_random_code

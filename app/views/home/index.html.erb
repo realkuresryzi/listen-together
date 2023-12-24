@@ -10,6 +10,10 @@
   <i class="fa-solid fa-music icon-padding"></i>
   <%= link_to "Enter jam", songs_path, class: "text-decor-setting" %>
 </div>
+<div class="section-link" onclick="window.location='<%= songs_path %>'">
+  <i class="fa-solid fa-trash icon-padding"></i>
+  <%= link_to "Remove all played songs", songs_path, class: "text-decor-setting" %>
+</div>
 
 <h2 class="home_title">Available tokens</h2>
 <div class="section-link" onclick="window.location='<%= tokens_path %>'">

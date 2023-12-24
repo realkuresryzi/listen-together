@@ -40,6 +40,14 @@ body {
   margin: 0;
 }
 
+@media (min-width: 38rem) {
+  body {
+    margin-left: calc(50vw - 15rem);
+    margin-right: calc(50vw - 15rem);
+  }
+}
+
+
 body a {
   text-decoration: none;
 }
