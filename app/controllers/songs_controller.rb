@@ -64,6 +64,20 @@ class SongsController < ApplicationController
   def upvote
     @song = Song.find(params[:id])
     @song.increment!(:upvotes)
+
+    Upvote.create(song_id: @song.id, token_code: session[:current_token])
+
+    respond_to do |format|
+      format.js { render layout: false }
+    end
+  end
+
+  def downvote
+    @song = Song.find(params[:id])
+    @song.decrement!(:upvotes)
+
+    Upvote.find_by(song_id: @song.id, token_code: session[:current_token]).destroy
+
     respond_to do |format|
       format.js { render layout: false }
     end

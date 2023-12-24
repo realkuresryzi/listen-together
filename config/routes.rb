@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
   resources :songs do
     put :upvote, on: :member
+    put :downvote, on: :member
     put :played, on: :member
   end
   delete '/leave_jam', to: 'guest_login#destroy', as: :leave_jam

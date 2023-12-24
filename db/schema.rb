@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_22_224316) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_24_141825) do
   create_table "sessions", force: :cascade do |t|
     t.integer "user_id"
     t.string "user_agent"
@@ -38,7 +38,15 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_22_224316) do
     t.boolean "used"
     t.integer "user_id", null: false
     t.string "email"
+    t.integer "upvoted"
     t.index ["user_id"], name: "index_tokens_on_user_id"
+  end
+
+  create_table "upvotes", force: :cascade do |t|
+    t.string "token_code"
+    t.integer "song_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
