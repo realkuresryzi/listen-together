@@ -28,8 +28,8 @@
     </div>
   <% end %>
 
-  <div id="additional-content" style="display: none;">
-    <%= link_to "Sign up", sign_up_path %> |
-    <%= link_to "Forgot your password?", new_identity_password_reset_path %>
+  <div class="additional-options">
+    <%= link_to "Sign up", sign_up_path, style: "color: #e2e2e2; text-decoration: underline;" %>
+    <%= link_to "Forgot your password?", new_identity_password_reset_path, style: "color: #e2e2e2; text-decoration: underline;" %>
   </div>
 </div>

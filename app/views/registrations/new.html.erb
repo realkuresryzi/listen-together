@@ -1,4 +1,12 @@
-<h1>Sign up</h1>
+<div style="margin: 3em;">
+  <%= link_to root_path do %>
+    <i class="fa-solid fa-house" style="color: white; font-size: 2em;"></i>
+  <% end %>
+</div>
+
+<div class="light-heading">
+  <h1>Sign up</h1>
+</div>
 
 <%= form_with(url: sign_up_path) do |form| %>
   <% if @user.errors.any? %>
@@ -13,22 +21,22 @@
     </div>
   <% end %>
 
-  <div>
+  <div class="general-input">
     <%= form.label :email, style: "display: block" %>
     <%= form.email_field :email, value: @user.email, required: true, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div>
+  <div class="general-input">
     <%= form.label :password, style: "display: block" %>
     <%= form.password_field :password, required: true, autocomplete: "new-password" %>
   </div>
 
-  <div>
+  <div class="general-input">
     <%= form.label :password_confirmation, style: "display: block" %>
     <%= form.password_field :password_confirmation, required: true, autocomplete: "new-password" %>
   </div>
 
-  <div>
+  <div class="general-input">
     <%= form.submit "Sign up" %>
   </div>
 <% end %>

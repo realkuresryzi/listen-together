@@ -10,3 +10,11 @@
 .purple_text {
     color: var(--dark-green)
 }
+
+.additional-options {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 4em 3em;
+  height: 3em;
+}
