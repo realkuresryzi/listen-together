@@ -10,7 +10,10 @@
 
 <%= form_with(url: guest_login_path) do |form| %>
 
-  <%= form.text_field :code, placeholder: "Code", value: @token&.code, required: true, class: "general-input" %>
+  <div>
+    <%= form.text_field :code, placeholder: "Code", value: @token&.code, required: true, class: "general-input" %>
+  <div>
+  <div class="notice invalid-code"><%= alert %></div>
 
   <div class="button-margin">
     <%= button_to guest_login_path, method: :post, class: "general-submit-button" do %>

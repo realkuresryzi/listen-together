@@ -29,8 +29,12 @@
     </div>
   <% end %>
 
-  <%= form.email_field :email, placeholder: "New email", required: true, autofocus: true, class: "general-input" %>
-  <%= form.password_field :password_challenge, placeholder: "Password", required: true, autocomplete: "current-password", class: "general-input" %>
+  <div>
+    <%= form.email_field :email, placeholder: "New email", required: true, autofocus: true, class: "general-input" %>
+  </div>
+  <div>
+    <%= form.password_field :password_challenge, placeholder: "Password", required: true, autocomplete: "current-password", class: "general-input" %>
+  </div>
 
   <div class="button-margin">
     <%= form.button type: :submit, class: "general-submit-button" do %>

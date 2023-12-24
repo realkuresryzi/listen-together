@@ -12,9 +12,13 @@
 <div class="additional-content">
   <%= form_with(url: sign_in_path) do |form| %>
 
-    <%= form.email_field :email, placeholder: "Email", value: params[:email_hint], required: true, autofocus: true, autocomplete: "email", class: "general-input" %>
-    <%= form.password_field :password, placeholder: "Password", required: true, autocomplete: "current-password", class: "general-input" %>
-
+    <div>
+      <%= form.email_field :email, placeholder: "Email", value: params[:email_hint], required: true, autofocus: true, autocomplete: "email", class: "general-input" %>
+    </div>
+    <div>  
+      <%= form.password_field :password, placeholder: "Password", required: true, autocomplete: "current-password", class: "general-input" %>
+    </div>
+    <p class="invalid-code"><%= alert %></p>
     <div class="button-margin">
       <%= button_to guest_login_path, method: :post, class: "general-submit-button" do %>
         <i class="fa-solid fa-right-to-bracket"></i>

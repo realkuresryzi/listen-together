@@ -11,8 +11,12 @@
     </div>
   <% end %>
 
-  <%= form.text_field :title, placeholder: "Title", class: "general-input" %>
-  <%= form.text_field :artist, placeholder: "Artist", class: "general-input" %>
+  <div>
+    <%= form.text_field :title, placeholder: "Title", class: "general-input" %>
+  </div>
+  <div>
+    <%= form.text_field :artist, placeholder: "Artist", class: "general-input" %>
+  </div>
 
   <div class="button-margin">
     <%= form.button type: :submit, class: "general-submit-button" do %>

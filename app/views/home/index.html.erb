@@ -6,13 +6,13 @@
 </div>
 
 <h2 class="home_title">Your current jam</h2>
-<div class="section-link">
+<div class="section-link" onclick="window.location='<%= songs_path %>'">
   <i class="fa-solid fa-music icon-padding"></i>
   <%= link_to "Enter jam", songs_path, class: "text-decor-setting" %>
 </div>
 
 <h2 class="home_title">Available tokens</h2>
-<div class="section-link">
+<div class="section-link" onclick="window.location='<%= tokens_path %>'">
   <i class="fa-solid fa-user-gear icon-padding"></i>
   <%= link_to "All tokens", tokens_path, class: "text-decor-setting" %>
 </div>
@@ -21,15 +21,15 @@
 </div> -->
 
 <h2 class="home_title">Account settings</h2>
-<div class="section-link">
+<div class="section-link" onclick="window.location='<%= edit_password_path %>'">
   <i class="fa-solid fa-key icon-padding"></i>
   <%= link_to "Change password", edit_password_path, class: "text-decor-setting" %>
 </div>
-<div class="section-link">
+<div class="section-link" onclick="window.location='<%= edit_identity_email_path %>'">
   <i class="fa-solid fa-envelope icon-padding"></i>
   <%= link_to "Change email address", edit_identity_email_path, class: "text-decor-setting" %>
 </div>
-<div class="section-link">
+<div class="section-link" onclick="window.location='<%= sessions_path %>'">
   <i class="fa-solid fa-desktop icon-padding"></i>
   <%= link_to "Devices & Sessions", sessions_path, class: "text-decor-setting" %>
 </div>

@@ -14,7 +14,7 @@ class GuestLoginController < ApplicationController
       puts "kinda session created with token: #{Current.token}"
       redirect_to songs_path, notice: "Welcome! You have entered successfully"
     else
-      redirect_to sign_in_path, alert: "That code is invalid"
+      redirect_to guest_login_path, alert: "Entered code is invalid..."
     end
   end
 

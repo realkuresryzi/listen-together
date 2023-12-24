@@ -23,10 +23,15 @@
     </div>
   <% end %>
 
-  <%= form.password_field :password_challenge, placeholder: "Old password", required: true, autofocus: true, autocomplete: "current-password", class: "general-input" %>
-  <%= form.password_field :password, placeholder: "New password", required: true, autocomplete: "new-password", class: "general-input" %>
-  <%= form.password_field :password_confirmation, placeholder: "New password confirmation", required: true, autocomplete: "new-password", class: "general-input" %>
-
+  <div>
+    <%= form.password_field :password_challenge, placeholder: "Old password", required: true, autofocus: true, autocomplete: "current-password", class: "general-input" %>
+  </div>
+  <div>
+    <%= form.password_field :password, placeholder: "New password", required: true, autocomplete: "new-password", class: "general-input" %>
+  </div>
+  <div>
+    <%= form.password_field :password_confirmation, placeholder: "New password confirmation", required: true, autocomplete: "new-password", class: "general-input" %>
+  </div>
   <div class="button-margin">
     <%= form.button type: :submit, class: "general-submit-button" do %>
       <i class="fa-solid fa-check"></i>

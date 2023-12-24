@@ -28,3 +28,9 @@
 .button-margin {
   margin-left: 3em;
 }
+
+.invalid-code {
+  margin: .5em 0 2em 3.8em;
+  color: var(--red-button);
+  font-size: .8em;
+}

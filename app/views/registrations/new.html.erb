@@ -21,9 +21,15 @@
     </div>
   <% end %>
 
-  <%= form.email_field :email, placeholder: "Email", value: @user.email, required: true, autofocus: true, autocomplete: "email", class: "general-input" %>
-  <%= form.password_field :password, placeholder: "Password", required: true, autocomplete: "new-password", class: "general-input" %>
-  <%= form.password_field :password_confirmation, placeholder: "Password confirmation", required: true, autocomplete: "new-password", class: "general-input" %>
+  <div>
+    <%= form.email_field :email, placeholder: "Email", value: @user.email, required: true, autofocus: true, autocomplete: "email", class: "general-input" %>
+  </div>
+  <div>
+    <%= form.password_field :password, placeholder: "Password", required: true, autocomplete: "new-password", class: "general-input" %>
+  </div>
+  <div>
+    <%= form.password_field :password_confirmation, placeholder: "Password confirmation", required: true, autocomplete: "new-password", class: "general-input" %>
+  </div>
 
   <div class="button-margin">
     <%= form.button type: :submit, class: "general-submit-button" do %>
