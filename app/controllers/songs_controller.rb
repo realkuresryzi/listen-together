@@ -27,6 +27,12 @@ class SongsController < ApplicationController
     t = Token.find_by(code: session[:current_token])
     @song.dj = t.email
 
+
+    if Song.where('lower(title) = ? AND lower(artist) = ?', @song.title.downcase, @song.artist.downcase).exists?
+      redirect_to new_song_path, alert: "Song already played or is in the queue..."
+      return
+    end
+
     respond_to do |format|
       if @song.save
         format.html { redirect_to songs_path, notice: "Song was successfully added..." }
