@@ -10,8 +10,8 @@
 
 <% if session[:current_token] %>
   <div class="buttons-footer">
-    <%= button_to leave_jam_path, method: :delete, title: "Leave jam" do %>
-      <i class="fa-solid fa-power-off button-styling"></i>
+    <%= button_to leave_jam_path, method: :delete, title: "Leave jam", class: "button-styling button-styling-logout" do %>
+      <i class="fa-solid fa-power-off"></i>
     <% end %>
 
     <%= link_to new_song_path do %>
@@ -52,7 +52,7 @@
               <%= render song %>
               <div class="upvote_button">
                 <%= button_to upvote_song_path(song), method: :put, remote: true, style: "background: none; border: none; padding: 0; cursor: pointer;" do %>
-                  <i class="fa-solid fa-angle-up" style="font-size: 1.5em; color: #7bdc98; padding: 2em;"></i>
+                  <i class="fa-solid fa-angle-up" style="font-size: 1.5em; color: #7bdc98; padding: 2.2em;"></i>
                 <% end %>
               </div>  
             </div>

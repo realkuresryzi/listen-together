@@ -1,9 +1,11 @@
-<h1>New song</h1>
+<div style="margin: 3em;">
+  <%= link_to songs_path do %>
+    <i class="fa-solid fa-house" style="color: white; font-size: 2em;"></i>
+  <% end %>
+</div>
+
+<div class="light-heading">
+  <h1>New song</h1>
+</div>
 
 <%= render "form", song: @song %>
-
-<br>
-
-<div>
-  <%= link_to "Back to songs", songs_path %>
-</div>
