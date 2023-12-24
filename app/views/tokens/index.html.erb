@@ -15,6 +15,7 @@
     <% if Current.user.email == token.email%>
       <div class="card_with_button">
         <%= render token %>
+        <div class="fill"></div>
         <div class="upvote_button">
           <%= button_to token_path(token), method: :delete, remote: true, style: "background: none; border: none; padding: 0; cursor: pointer;" do %>
             <i class="fa-solid fa-trash" style="font-size: 1.5em; color: #d74d3e; padding: 1.14em;"></i>

@@ -63,6 +63,18 @@ class TokensController < ApplicationController
     end
   end
 
+  def toggle_used
+    @token = Token.find(params[:id])
+    @token.update(used: !@token.used)
+
+    puts "\n\nChanged: " + @token.used.to_s + "\n\n"
+
+    respond_to do |format|
+      format.js # Add this line if you want to handle the response with JavaScript (optional)
+      format.html { redirect_to tokens_path, notice: 'Token used status toggled successfully.' }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_token

@@ -1,3 +1,9 @@
-<div id="<%= dom_id token %>" class="token-card">
-    <%= token.code %>
-</div>
+<%= form_for token, url: toggle_used_token_path(token), method: :patch, remote: true do |f| %>
+  <button type="submit" class="token-card">
+    <% if token.used %>
+      <div class="used-token"><%= token.code %> (used)</div>
+    <% else %>
+      <%= token.code %>
+    <% end %>
+  </button>
+<% end %>
