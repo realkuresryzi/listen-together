@@ -50,7 +50,7 @@
 }
 
 .icon-button {
-    color: var(--light-text);
+    color: var(--green);
     background-color: transparent;
     border: none;
     font-size: 2em;
