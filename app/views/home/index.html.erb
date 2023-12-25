@@ -28,14 +28,6 @@
   </div>
 <% end %>
 
-<!-- in case i dont fix javascript -->
-<!-- <div id="remove-all-songs" class="section-link section-delete-link" style="display: none;">
-  <%= link_to remove_all_songs_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" do %>
-    <i class="fas fa-trash icon-padding"></i> Remove all played songs
-  <% end %>
-</div> -->
-
-
 <h2 class="home_title">Available tokens</h2>
 <div class="section-link" onclick="window.location='<%= tokens_path %>'">
   <i class="fa-solid fa-user-gear icon-padding"></i>
@@ -59,3 +51,5 @@
   <%= link_to "Devices & Sessions", sessions_path, class: "text-decor-setting" %>
 </div>
 <%= button_to "Log out", Current.session, method: :delete, class: "section-link log-out-button"%>
+
+<p class="rights-comment">&#169 2023, Zero Budget Solutions. All rights reserved.</p>
