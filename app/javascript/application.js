@@ -16,3 +16,14 @@ document.addEventListener("turbo:load", function() {
     });
   }
 });
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  const copyButtons = document.querySelectorAll('.copy-button');
+  copyButtons.forEach((copyButton) => {
+    copyButton.addEventListener('click', function() {
+      console.log("copying");
+      const textToCopy = copyButton.getAttribute('data-copy-text');
+      navigator.clipboard.writeText(textToCopy);
+    });
+  });
+});
